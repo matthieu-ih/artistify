@@ -1,3 +1,10 @@
+require("../../config/mongo");
+
+const LabelModel = require('./../../model/Label')
+
+const mongoose = require("mongoose");
+
+
 const label = [{
     
     name : "XL Recordings",
@@ -6,7 +13,7 @@ const label = [{
     street : "Codrington Mews, Notting Hill",
     streetNumber : 1,
     zipcode : "W11 2EH",
-    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614597294/Artistify/XL_ladgfw.webp"
+    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614608160/Artistify/XL1_a9s1eg.jpg"
 }, 
 
 {
@@ -16,7 +23,7 @@ const label = [{
     street : "PO Box",
     streetNumber : 379,
     zipcode : "10276",
-    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614597295/Artistify/Ghostly_btlkkp.webp"
+    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614608160/Artistify/Ghostly1_urboa4.jpg"
 },
 
 {
@@ -26,14 +33,10 @@ const label = [{
     street : "Krumkmakargatan",
     streetNumber : 22,
     zipcode : "11851",
-    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614597295/Artistify/Year0001_otjwyn.webp"
+    logo : "https://res.cloudinary.com/dsldnzayz/image/upload/v1614608160/Artistify/Year00012_bjjttj.jpg"
 },
 
 ]
-
-require("../../config/mongo");
-const LabelModel = require("./../../model/Label");
-const mongoose = require("mongoose");
 
 LabelModel.create(label)
 .then((dbsuccess) => {

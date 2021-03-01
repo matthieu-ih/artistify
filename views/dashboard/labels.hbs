@@ -1,0 +1,18 @@
+<h2>Labels</h2>
+<br>
+
+<section>
+{{#each label}}
+
+<div>
+<h2>{{this.name}}</h2>
+<img class="logo-img" src="{{this.logo}}" alt="label logo">
+<h4>Address:</h4>
+<p>{{this.streetNumber}} , {{this.street}}, {{this.city}}, {{this.zipcode}} , {{this.country}}</p>
+
+
+
+</div>
+<br>
+{{/each}}
+</section>
