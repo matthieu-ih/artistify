@@ -1,0 +1,13 @@
+<h2>Artists selection</h2>
+
+<section>
+{{#each artist}}
+
+<div>
+<h3>{{this.name}}</h3>
+<p>Description: {{this.description}}</p>
+<img src="{{this.picture}}" alt="album cover">
+</div>
+<br>
+{{/each}}
+</section>
