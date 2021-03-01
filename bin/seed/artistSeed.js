@@ -36,3 +36,5 @@ ArtistModel.create(artists)
   .catch(error => {
     console.log(error);
   })
+
+  //pour matthieu
