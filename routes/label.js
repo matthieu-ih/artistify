@@ -59,4 +59,15 @@ router.post('/update/:id', (req, res, next) => {
 
 });
 
+
+router.get('/delete/:id', (req, res, next) => {
+  LabelModel.findByIdAndDelete(req.params.id)
+  .then(()=> {
+    res.redirect("/dashboard/label")
+  })
+  .catch((error) => {
+    next(error)
+  });
+});
+
 module.exports = router;
