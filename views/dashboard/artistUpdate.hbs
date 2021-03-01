@@ -1,0 +1,23 @@
+<h2>Update this artist</h2>
+
+<form action="/dashboard/artist/update/{{artist.id}}" method="post" class="form">
+    <label for="name-input">Name</label>
+    <input id="name-input" type="text" name="name" value="{{artist.name}}">
+        <br>
+    <label for="isBand">is a band?</label>
+    {{#if artist.isBand}}
+    <input id="isBand" type="checkbox" name="isBand" checked>
+    {{else}}
+    <input id="isBand" type="checkbox" name="isBand">
+    {{/if}}
+        <br>
+    <label for="description-input">Description</label>
+    <input id="description-input" type="text" name="description" value="{{artist.description}}">
+        <br>
+    <label for="picture-input" class="label">Add the cover of one album</label>
+    <input type="file" name="picture-input" id="picture"/>
+        <br>
+    <button type="submit">OK</button>
+</form>
+<br>
+<a href="/dashboard">Go back</a>

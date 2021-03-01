@@ -13,4 +13,54 @@ router.get("/", async (req, res) => {
   })
 });
 
+router.get("/create", async (req, res) => {
+  res.render("dashboard/artistCreate")
+})
+
+router.post("/create", (req, res, next) => {
+  const { name, isBand, description, picture } = req.body;
+  ArtistModel.create(req.body)
+  .then(() => {
+    res.redirect("/dashboard/artist");
+  })
+  .catch((error) => {
+    next(error);
+  })
+});
+
+router.get("/update/:id", (req, res, next) => {
+  ArtistModel.findById(req.params.id)
+  .then((artist) => {
+    res.render("dashboard/artistUpdate", {artist})
+  })
+  .catch((error) => {
+    next(error);
+  })
+})
+
+router.post("/update/:id", (req, res, next) => {
+  const { name, isBand, description, picture } = req.body;
+  ArtistModel.findByIdAndUpdate(req.params.id, {
+    name,
+    isBand: isBand === "on",
+    description,
+    picture })
+  .then(() => {
+    res.redirect("/dashboard/artist")
+  })
+  .catch((error) => {
+    next(error);
+  })
+});
+
+router.get("/delete/:id", (req, res, next) => {
+  ArtistModel.findByIdAndDelete(req.params.id)
+  .then(() => {
+    res.redirect("/dashboard/artist")
+  })
+  .catch((error) => {
+    next(error);
+  })
+});
+
 module.exports = router;

@@ -1,0 +1,19 @@
+<h2>Add your favorite artist!</h2>
+
+<form action="/dashboard/artist/create" method="post" class="form">
+    <label for="name-input">Name</label>
+    <input id="name-input" type="text" name="name">
+        <br>
+    <label for="isBand">is a band?</label>
+    <input id="isBand" type="checkbox" name="isBand">
+    <br>
+    <label for="description-input">Description</label>
+    <input id="description-input" type="text" name="description">
+        <br>
+    <label for="picture-input" class="label">Add the cover of one album</label>
+    <input type="file" name="picture-input" id="picture"/>
+        <br>
+    <button type="submit">Send</button>
+</form>
+<br>
+<a href="/dashboard">Go back</a>
