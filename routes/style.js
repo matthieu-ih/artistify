@@ -13,4 +13,49 @@ router.get("/", async (req, res) => {
     })
 });
 
+router.get('/create', (req, res) => {
+res.render('dashboard/styleCreate');
+});
+
+router.post('/create', (req, res) => {
+
+    StylesModel.create(req.body)
+    
+    .then(style => {
+        console.log(style);
+        res.redirect('/dashboard/style');
+    })
+    .catch(error => {
+        res.render('dashboard/styleCreate');
+        console.log(error);
+    });
+});
+
+
+router.get('/update/:id', (req, res) => {
+
+    StylesModel.findById(req.params.id)
+
+        .then(style => {
+            res.render('dashboard/styleUpdate', {style});
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    });
+    
+    router.post('/update/:id', (req, res) => {
+    
+        StylesModel.findByIdAndUpdate(req.params.id, req.body, {new:true})
+        
+        .then(style => {
+            console.log(style);
+            res.redirect('/dashboard/style');
+        })
+        .catch(error => {
+            res.render('dashboard/styleUpdate');
+            console.log(error);
+        });
+    });
+
 module.exports = router;
