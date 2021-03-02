@@ -58,4 +58,15 @@ router.get('/update/:id', (req, res) => {
         });
     });
 
+
+    router.get("/delete/:id", (req, res, next) => {
+        StylesModel.findByIdAndDelete(req.params.id)
+        .then(() => {
+          res.redirect("/dashboard/style")
+        })
+        .catch((error) => {
+          next(error);
+        });
+      });
+
 module.exports = router;
